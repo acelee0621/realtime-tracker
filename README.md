@@ -4,8 +4,8 @@
 
 用户可以通过前端界面添加、更新和删除库存物品，所有更改都会被即时广播到所有连接的客户端，无需刷新页面。
 
-![应用动态演示](https://user-images.githubusercontent.com/assets/your-id/placeholder.gif)
-*(请将此链接替换为您自己录制的应用GIF动图！)*
+![应用动态演示](https://github.com/acelee0621/realtime-tracker/blob/main/animation.gif)
+
 
 ---
 
