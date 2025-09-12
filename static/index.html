@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Inventory Tracker</title>
+    <style>
+        /* 1. 页面整体居中（已定宽） */
+.container {
+    max-width: 800px;
+    margin: 0 auto;        /* 本身居中 */
+    padding: 2rem 1rem;
+}
+
+/* 2. 标题区：文字居中 */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* 3. 卡片：本身居中 + 内部全部居中 */
+.card {
+    margin: 0 auto;                   /* 卡片本身居中 */
+    text-align: center;               /* 卡片内文字先整体居中 */
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+}
+
+/* 4. 连接状态条：文字居中 */
+#connection-status {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* 5. 表单区：输入框 + 按钮排成一行并居中 */
+.form-group {
+    display: inline-flex;   /* 不会占满整行，只包裹内容 */
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* 6. 库存清单：标题 + 列表本身居中 */
+.inventory-list h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#inventory-container {
+    margin: 0 auto;        /* 列表块本身居中 */
+    max-width: 600px;      /* 避免列表太宽 */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📦 实时库存管理系统</h1>
+            <p>实时添加、更新与追踪库存物品</p>
+        </div>
+        <div class="card">
+            <div id="connection-status" class="status disconnected">
+                🔴 Disconnected from server
+            </div>
+            <div class="form-section">
+                <h2>新增物品</h2>
+                <form id="add-item-form">
+                    <div class="form-group">
+                        <input type="text" id="item-name" placeholder="物品名称" required>
+                        <input type="number" id="item-quantity" placeholder="数量" min="0" required>
+                        <button type="submit" class="btn">新增</button>
+                    </div>
+                </form>
+            </div>
+            <div class="inventory-list">
+                <h2>库存物品清单</h2>
+                <div id="inventory-container">
+                    <div class="loading">载入库存中...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="static/index.js"></script>
+</body>
+</html>
