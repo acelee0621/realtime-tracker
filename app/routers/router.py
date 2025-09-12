@@ -84,7 +84,7 @@ async def websocket_endpoint(websocket: WebSocket):
     """WebSocket endpoint for real-time updates"""
     await deps.manager.connect(websocket)
     try:
-        while True:            
-            await websocket.receive_text()
+        async for message in websocket.iter_text():            
+            pass
     except WebSocketDisconnect:
         deps.manager.disconnect(websocket)

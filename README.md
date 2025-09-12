@@ -74,24 +74,18 @@ cd realtime-tracker
 
 ### 2. 创建并激活虚拟环境
 
-我们强烈建议您使用虚拟环境。
+本项目使用 uv 管理。
 
 ```bash
 # 创建虚拟环境
-python -m venv .venv
-
-# 激活虚拟环境
-# On Windows:
-# .venv\Scripts\activate
-# On macOS/Linux:
-source .venv/bin/activate
+uv venv
 ```
 
 ### 3. 安装依赖
 
 ```bash
 # 使用 pyproject.toml 文件安装所有依赖
-pip install .
+uv sync
 ```
 
 ### 4. 配置 PostgreSQL 数据库 (必需)
