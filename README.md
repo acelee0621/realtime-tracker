@@ -132,6 +132,17 @@ uvicorn app.main:app --reload
 
 ---
 
+## 📬 联系
+
+* 微信公众号：**码间絮语**
+<center>
+  <img src="https://github.com/acelee0621/fastapi-users-turtorial/blob/main/QRcode.png" width="500" alt="签名图">
+</center>
+
+* 欢迎 Star ⭐ & 关注，获取最新教程和代码更新。
+
+---
+
 ## 📄 开源许可
 
 本项目采用 **MIT 许可**。详情请见 [LICENSE](LICENSE) 文件。

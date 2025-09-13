@@ -14,6 +14,7 @@ from sqlalchemy.ext.asyncio import (
 from app.core.config import get_settings, settings
 from app.core.notifier import PostgresNotifier
 from app.core import dependencies as deps
+from app.core.bootstrap import bootstrap_db
 from app.core.database import (
     setup_database_connection,
     close_database_connection,
@@ -29,6 +30,11 @@ class AppState(TypedDict):
 
     engine: AsyncEngine
     session_factory: async_sessionmaker[AsyncSession]
+    
+    
+def _pure_pg_dsn(dsn: str) -> str:
+    """数据库链接转换"""
+    return dsn.replace("postgresql+asyncpg", "postgresql", 1)
 
 
 @asynccontextmanager
@@ -38,6 +44,9 @@ async def lifespan(app: FastAPI) -> AsyncIterator[AppState]:
     engine, session_factory = await setup_database_connection()
     logger.info("🚀 应用启动，数据库已就绪。")
     await create_db_and_tables(engine)
+    
+    await bootstrap_db(_pure_pg_dsn(str(settings.DATABASE_URL)))
+
 
     global notifier
     notifier = PostgresNotifier(
