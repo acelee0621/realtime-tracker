@@ -63,12 +63,12 @@
 
 * Python 3.13 或更高版本
 * **PostgreSQL** 实例 (必需)
-* 包管理工具 `pip`
+* 包管理工具 `uv`
 
 ### 1. 克隆仓库
 
 ```bash
-git clone [https://github.com/your-username/realtime-tracker.git](https://github.com/your-username/realtime-tracker.git)
+git clone https://github.com/your-username/realtime-tracker.git
 cd realtime-tracker
 ```
 
